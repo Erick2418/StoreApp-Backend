@@ -1,18 +1,18 @@
 "use strict";
-//  Rutas de usuarios /api/user
+//  Ruta de cliente /api/cli
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
-// import { createCliente, getClientes, getCliente, updateCliente, deleteCliente, loginClienteAuth } from '../controllers/cliente.controller';
 // import { validarJwt } from '../middlewares/validarJwt';
 // import { validarClienteSchema } from '../middlewares/validarShemaClient';
 // import { createClienteSchema, loginClienteSchema, updateClienteSchema } from '../schemas/cliente.schema';
 var cliente_controller_1 = require("../controller/cliente.controller");
+var validateSchemaUsuario_1 = require("../middlewares/validateSchemaUsuario");
+var usuario_schema_1 = require("../schemas/usuario.schema");
 var router = (0, express_1.Router)();
-// router.post('/login',validarShemaAuth(shemaAuth),loginUserAuth);
-// router.post('/',validarClienteSchema(createClienteSchema),createCliente);
+router.post('/newCli', (0, validateSchemaUsuario_1.validateSchemaUsuario)(usuario_schema_1.createUsuarioSchema), cliente_controller_1.createCliente);
 // router.use(validarJwt);
 router.get('/', cliente_controller_1.getClientes);
-// router.get('/:id',getCliente);
-// router.put('/:id',validarClienteSchema(updateClienteSchema),updateCliente);
-// router.delete('/:id',deleteCliente);
+router.get('/:id', cliente_controller_1.getCliente);
+router.put('/:id', (0, validateSchemaUsuario_1.validateSchemaUsuario)(usuario_schema_1.updateUsuarioSchema), cliente_controller_1.updateCliente);
+router.delete('/:id', cliente_controller_1.deleteCliente);
 exports.default = router;

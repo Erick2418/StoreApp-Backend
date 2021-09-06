@@ -30,14 +30,19 @@ var Usuario = /** @class */ (function () {
     ], Usuario.prototype, "email", void 0);
     __decorate([
         (0, typeorm_1.Column)({ type: "varchar", length: 200 }),
-        __metadata("design:type", Boolean)
+        __metadata("design:type", String)
     ], Usuario.prototype, "password", void 0);
     __decorate([
         (0, typeorm_1.Column)('date'),
         __metadata("design:type", String)
     ], Usuario.prototype, "fecha", void 0);
     __decorate([
+        (0, typeorm_1.Column)(),
+        __metadata("design:type", Number)
+    ], Usuario.prototype, "rolId", void 0);
+    __decorate([
         (0, typeorm_1.ManyToOne)(function () { return Rol_1.Rol; }, function (rol) { return rol.usuarios; }),
+        (0, typeorm_1.JoinColumn)(),
         __metadata("design:type", Rol_1.Rol)
     ], Usuario.prototype, "rol", void 0);
     __decorate([
@@ -50,3 +55,4 @@ var Usuario = /** @class */ (function () {
     return Usuario;
 }());
 exports.Usuario = Usuario;
+// nullable: false 

@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import {createConnection} from 'typeorm'
 
 import clienteRoute from './routes/cliente.routes';
+import authRoute from './routes/auth.routes';
 
 
 const app = express();
@@ -25,6 +26,8 @@ app.use(morgan('dev'))
 app.use(express.json());
 
 //rutas o routs
+app.use('/api/login',authRoute); 
+
 app.use('/api/cliente',clienteRoute); 
 
 
