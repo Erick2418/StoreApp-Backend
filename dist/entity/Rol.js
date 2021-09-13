@@ -20,7 +20,7 @@ var Rol = /** @class */ (function () {
         __metadata("design:type", Number)
     ], Rol.prototype, "id", void 0);
     __decorate([
-        (0, typeorm_1.Column)({ type: "varchar", length: 200 }),
+        (0, typeorm_1.Column)({ type: "varchar", length: 50 }),
         __metadata("design:type", String)
     ], Rol.prototype, "nombre", void 0);
     __decorate([

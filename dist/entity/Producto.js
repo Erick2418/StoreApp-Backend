@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Producto = void 0;
 var typeorm_1 = require("typeorm");
+var Categoria_1 = require("./Categoria");
 var DetalleVenta_1 = require("./DetalleVenta");
 var Producto = /** @class */ (function () {
     function Producto() {
@@ -35,6 +36,15 @@ var Producto = /** @class */ (function () {
         (0, typeorm_1.OneToMany)(function () { return DetalleVenta_1.DetalleVenta; }, function (detalleVenta) { return detalleVenta.producto; }),
         __metadata("design:type", Array)
     ], Producto.prototype, "detalleVentas", void 0);
+    __decorate([
+        (0, typeorm_1.Column)(),
+        __metadata("design:type", Number)
+    ], Producto.prototype, "categoriaId", void 0);
+    __decorate([
+        (0, typeorm_1.ManyToOne)(function () { return Categoria_1.Categoria; }, function (categoria) { return categoria.productos; }),
+        (0, typeorm_1.JoinColumn)(),
+        __metadata("design:type", Categoria_1.Categoria)
+    ], Producto.prototype, "categoria", void 0);
     Producto = __decorate([
         (0, typeorm_1.Entity)()
     ], Producto);

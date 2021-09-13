@@ -35,59 +35,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loginUserAuth = void 0;
+exports.getProductos = void 0;
 var typeorm_1 = require("typeorm"); //tre un repo o una tabla de una base de datos
-// import { Auth } from '../entity/Auth';
-var bcryptjs_1 = __importDefault(require("bcryptjs"));
-// import { generarJWT } from '../helpers/jwt';
-var Usuario_1 = require("../entity/Usuario");
-var loginUserAuth = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, email, password, emailExist, validPassword, error_1;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
+var Producto_1 = require("../entity/Producto");
+var getProductos = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var producto, error_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
-                _a = req.body, email = _a.email, password = _a.password;
-                _b.label = 1;
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, (0, typeorm_1.getRepository)(Producto_1.Producto)
+                        .createQueryBuilder("producto")
+                        .leftJoinAndSelect("producto.categoria", "categoria")
+                        .getMany()];
             case 1:
-                _b.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, (0, typeorm_1.getRepository)(Usuario_1.Usuario).findOne({ email: email })];
-            case 2:
-                emailExist = _b.sent();
-                if ((emailExist === null || emailExist === void 0 ? void 0 : emailExist.email) == undefined) {
-                    return [2 /*return*/, res.status(400).json({
-                            ok: false,
-                            msg: 'email o password  incorrecto' // cambiar por "Email o Password Incorrecto"
-                        })];
-                }
-                validPassword = bcryptjs_1.default.compareSync(password, emailExist.password);
-                // console.log(validPassword)
-                if (!validPassword) {
-                    return [2 /*return*/, res.status(400).json({
-                            ok: false,
-                            msg: 'email o password  incorrecto' // cambiar por "Email o Password Incorrecto"
-                        })];
-                }
-                //GENERAR JWT
-                // const token =  await generarJWT(emailExist.id+"",emailExist.email)
-                return [2 /*return*/, res.status(201).json({
+                producto = _a.sent();
+                return [2 /*return*/, res.json({
                         ok: true,
-                        id: emailExist.id,
-                        email: emailExist.email,
-                        nombre: emailExist.nombre,
-                        // token
+                        producto: producto
                     })];
-            case 3:
-                error_1 = _b.sent();
+            case 2:
+                error_1 = _a.sent();
                 return [2 /*return*/, res.status(500).json({
                         ok: false,
-                        msg: 'Conectate al administrador'
+                        msg: 'Conectate con el administrador'
                     })];
-            case 4: return [2 /*return*/];
+            case 3: return [2 /*return*/];
         }
     });
 }); };
-exports.loginUserAuth = loginUserAuth;
+exports.getProductos = getProductos;

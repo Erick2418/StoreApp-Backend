@@ -18,12 +18,16 @@ export class DetalleVenta{
     subtotal: number;
     
     //IDPRODUCTO
+    @Column()
+    productoId: number;
     @ManyToOne(() => Producto, producto => producto.detalleVentas)
     producto: Producto;
 
     //IDVENTA
     // PHOTO == DetalleVentas
     //PHOTO
+    @Column()
+    ventaId: number;
     @ManyToOne(() => Venta, venta => venta.detalleVentas)
     venta: Venta;
 

@@ -1,7 +1,7 @@
 //  Ruta de cliente /api/cli
 
 import {Router} from 'express'
-// import { validarJwt } from '../middlewares/validarJwt';
+import { validarJwt } from '../middlewares/validarJwt';
 
 // import { validarClienteSchema } from '../middlewares/validarShemaClient';
 // import { createClienteSchema, loginClienteSchema, updateClienteSchema } from '../schemas/cliente.schema';
@@ -15,7 +15,7 @@ const router = Router();
 router.post('/newCli',validateSchemaUsuario(createUsuarioSchema),createCliente);
 
 
-// router.use(validarJwt);
+router.use(validarJwt);
 
 router.get('/',getClientes);
 

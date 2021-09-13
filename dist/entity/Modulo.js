@@ -9,36 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Venta = void 0;
+exports.Modulo = void 0;
 var typeorm_1 = require("typeorm");
-var Usuario_1 = require("./Usuario");
-var DetalleVenta_1 = require("./DetalleVenta");
-var Venta = /** @class */ (function () {
-    function Venta() {
+// import { Usuario } from './Usuario';
+var Modulo = /** @class */ (function () {
+    function Modulo() {
     }
     __decorate([
         (0, typeorm_1.PrimaryGeneratedColumn)(),
         __metadata("design:type", Number)
-    ], Venta.prototype, "id", void 0);
+    ], Modulo.prototype, "id", void 0);
     __decorate([
-        (0, typeorm_1.Column)('date'),
+        (0, typeorm_1.Column)({ type: "varchar", length: 50 }),
         __metadata("design:type", String)
-    ], Venta.prototype, "fecha", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", Number)
-    ], Venta.prototype, "usuarioId", void 0);
-    __decorate([
-        (0, typeorm_1.ManyToOne)(function () { return Usuario_1.Usuario; }, function (usuario) { return usuario.ventas; }),
-        __metadata("design:type", Usuario_1.Usuario)
-    ], Venta.prototype, "usuario", void 0);
-    __decorate([
-        (0, typeorm_1.OneToMany)(function () { return DetalleVenta_1.DetalleVenta; }, function (detalleVenta) { return detalleVenta.venta; }),
-        __metadata("design:type", Array)
-    ], Venta.prototype, "detalleVentas", void 0);
-    Venta = __decorate([
+    ], Modulo.prototype, "nombre", void 0);
+    Modulo = __decorate([
         (0, typeorm_1.Entity)()
-    ], Venta);
-    return Venta;
+    ], Modulo);
+    return Modulo;
 }());
-exports.Venta = Venta;
+exports.Modulo = Modulo;

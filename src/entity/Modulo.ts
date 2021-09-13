@@ -2,7 +2,7 @@ import { Entity,Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 // import { Usuario } from './Usuario';
 
 @Entity()
-export class Operaciones{
+export class Modulo{
 
     @PrimaryGeneratedColumn()
     id:number;

@@ -33,9 +33,17 @@ var DetalleVenta = /** @class */ (function () {
         __metadata("design:type", Number)
     ], DetalleVenta.prototype, "subtotal", void 0);
     __decorate([
+        (0, typeorm_1.Column)(),
+        __metadata("design:type", Number)
+    ], DetalleVenta.prototype, "productoId", void 0);
+    __decorate([
         (0, typeorm_1.ManyToOne)(function () { return Producto_1.Producto; }, function (producto) { return producto.detalleVentas; }),
         __metadata("design:type", Producto_1.Producto)
     ], DetalleVenta.prototype, "producto", void 0);
+    __decorate([
+        (0, typeorm_1.Column)(),
+        __metadata("design:type", Number)
+    ], DetalleVenta.prototype, "ventaId", void 0);
     __decorate([
         (0, typeorm_1.ManyToOne)(function () { return Venta_1.Venta; }, function (venta) { return venta.detalleVentas; }),
         __metadata("design:type", Venta_1.Venta)

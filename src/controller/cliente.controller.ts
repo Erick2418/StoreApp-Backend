@@ -134,7 +134,7 @@ export const updateCliente = async (req:Request,res:Response): Promise<Response>
                     .createQueryBuilder("usuario")
                     .where("usuario.rolId = :idRol AND usuario.id= :idUser" , { idRol: idRolCliente,idUser:clienteID})
                     .getOne(); 
-         
+
         if(cliente==undefined){
             console.log('NO SE ENCONTRO');
             return res.status(404).json({

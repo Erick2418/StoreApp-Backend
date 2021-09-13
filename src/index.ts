@@ -8,6 +8,7 @@ import {createConnection} from 'typeorm'
 
 import clienteRoute from './routes/cliente.routes';
 import authRoute from './routes/auth.routes';
+import productoRoute from './routes/producto.routes';
 
 
 const app = express();
@@ -29,7 +30,7 @@ app.use(express.json());
 app.use('/api/login',authRoute); 
 
 app.use('/api/cliente',clienteRoute); 
-
+app.use('/api/producto',productoRoute); 
 
 
 
