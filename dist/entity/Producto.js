@@ -25,6 +25,10 @@ var Producto = /** @class */ (function () {
         __metadata("design:type", String)
     ], Producto.prototype, "nombre", void 0);
     __decorate([
+        (0, typeorm_1.Column)({ type: "varchar", length: 250 }),
+        __metadata("design:type", String)
+    ], Producto.prototype, "descripcion", void 0);
+    __decorate([
         (0, typeorm_1.Column)("decimal", { precision: 5, scale: 2 }),
         __metadata("design:type", Number)
     ], Producto.prototype, "precio", void 0);

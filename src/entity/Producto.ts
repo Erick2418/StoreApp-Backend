@@ -11,6 +11,9 @@ export class Producto{
     @Column({type:"varchar", length:200})
     nombre: string;
 
+    @Column({type:"varchar", length:250})
+    descripcion: string;
+
     @Column("decimal",{precision:5,scale:2})
     precio: number;
 
