@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getProductos = void 0;
+exports.getProducto = exports.getProductos = void 0;
 var typeorm_1 = require("typeorm"); //tre un repo o una tabla de una base de datos
 var Producto_1 = require("../entity/Producto");
 var getProductos = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -66,3 +66,40 @@ var getProductos = function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); };
 exports.getProductos = getProductos;
+var getProducto = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var idProducto, producto, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                idProducto = req.params.id;
+                _a.label = 1;
+            case 1:
+                _a.trys.push([1, 3, , 4]);
+                return [4 /*yield*/, (0, typeorm_1.getRepository)(Producto_1.Producto)
+                        .createQueryBuilder("producto")
+                        .where("producto.id = :id", { id: idProducto })
+                        .leftJoinAndSelect("producto.categoria", "categoria")
+                        .getOne()];
+            case 2:
+                producto = _a.sent();
+                if (!producto) {
+                    return [2 /*return*/, res.status(404).json({
+                            ok: false,
+                            msg: 'Producto no existe con ese ID'
+                        })];
+                }
+                return [2 /*return*/, res.json({
+                        ok: true,
+                        producto: producto
+                    })];
+            case 3:
+                error_2 = _a.sent();
+                return [2 /*return*/, res.status(500).json({
+                        ok: false,
+                        msg: 'Conectate con el administrador'
+                    })];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
+exports.getProducto = getProducto;

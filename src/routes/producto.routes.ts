@@ -7,7 +7,7 @@ import {Router} from 'express'
 // import { getClientes, getCliente, createCliente, updateCliente, deleteCliente } from '../controller/cliente.controller';
 // import { validateSchemaUsuario } from '../middlewares/validateSchemaUsuario';
 // import { createUsuarioSchema, updateUsuarioSchema } from '../schemas/usuario.schema';
-import { getProductos } from '../controller/producto.controller';
+import { getProductos,getProducto } from '../controller/producto.controller';
 
 const router = Router();
 
@@ -19,6 +19,7 @@ const router = Router();
 
 router.get('/',getProductos);
 
+router.get('/:id',getProducto);
 // router.get('/:id',getCliente);
 
 // router.put('/:id',validateSchemaUsuario(updateUsuarioSchema),updateCliente);
