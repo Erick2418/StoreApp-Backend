@@ -1,6 +1,6 @@
 {
     "type": "mysql",
-    "host": "mysql-storeapp.alwaysdata.net",
+    "host": "localhost",
     "port": 3306,
     "username": "storeapp_erick",
     "password": "erick2418",

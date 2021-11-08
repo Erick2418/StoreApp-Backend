@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Categoria = exports.Venta = exports.Rol = exports.Usuario = void 0;
+exports.DetalleVenta = exports.Categoria = exports.Venta = exports.Rol = exports.Usuario = void 0;
 var Usuario_1 = require("./Usuario");
 Object.defineProperty(exports, "Usuario", { enumerable: true, get: function () { return Usuario_1.Usuario; } });
 var Rol_1 = require("./Rol");
@@ -9,3 +9,5 @@ var Venta_1 = require("./Venta");
 Object.defineProperty(exports, "Venta", { enumerable: true, get: function () { return Venta_1.Venta; } });
 var Categoria_1 = require("./Categoria");
 Object.defineProperty(exports, "Categoria", { enumerable: true, get: function () { return Categoria_1.Categoria; } });
+var DetalleVenta_1 = require("./DetalleVenta");
+Object.defineProperty(exports, "DetalleVenta", { enumerable: true, get: function () { return DetalleVenta_1.DetalleVenta; } });

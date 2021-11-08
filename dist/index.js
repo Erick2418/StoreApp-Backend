@@ -12,6 +12,7 @@ var typeorm_1 = require("typeorm");
 var cliente_routes_1 = __importDefault(require("./routes/cliente.routes"));
 var auth_routes_1 = __importDefault(require("./routes/auth.routes"));
 var producto_routes_1 = __importDefault(require("./routes/producto.routes"));
+var compra_routes_1 = __importDefault(require("./routes/compra.routes"));
 var app = (0, express_1.default)();
 dotenv_1.default.config();
 (0, typeorm_1.createConnection)();
@@ -22,6 +23,7 @@ app.use(express_1.default.json());
 app.use('/api/login', auth_routes_1.default);
 app.use('/api/cliente', cliente_routes_1.default);
 app.use('/api/producto', producto_routes_1.default);
+app.use('/api/compra', compra_routes_1.default);
 app.listen(process.env.PORT, function () {
     console.log("Servidor corriendo en puerto " + process.env.PORT);
 });
