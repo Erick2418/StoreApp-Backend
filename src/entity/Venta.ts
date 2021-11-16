@@ -1,7 +1,7 @@
 import { Entity,Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from "typeorm";
 import { Usuario } from './Usuario';
 import { DetalleVenta } from './DetalleVenta';
-
+ 
 @Entity()
 export class Venta{
 
